@@ -1,21 +1,32 @@
-// ============================================
-// NEXUS CNC - ESTILOS: About
-// ============================================
+/* About Component */
 
 .about {
-  @include section-padding;
+  padding: var(--spacing-24) var(--spacing-16);
   position: relative;
   z-index: 1;
+}
 
-  &__container {
-    @include container;
+@media (max-width: 1024px) {
+  .about {
+    padding: var(--spacing-20) var(--spacing-8);
   }
+}
 
-  &__services {
-    margin-bottom: $spacing-12;
+@media (max-width: 768px) {
+  .about {
+    padding: var(--spacing-16) var(--spacing-6);
   }
+}
 
-  &__cta {
-    text-align: center;
-  }
+.about__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.about__services {
+  margin-bottom: var(--spacing-12);
+}
+
+.about__cta {
+  text-align: center;
 }

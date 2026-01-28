@@ -1,6 +1,4 @@
-// ============================================
-// NEXUS CNC - ESTILOS: Hero
-// ============================================
+/* Hero Component */
 
 .hero {
   min-height: 100vh;
@@ -9,164 +7,154 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+}
 
-  // --- Container ---
-  &__container {
-    @include container;
-    position: relative;
-    z-index: 2;
-    padding-top: $spacing-32;
-    padding-bottom: $spacing-16;
+.hero__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--spacing-32) var(--spacing-16) var(--spacing-16);
+  position: relative;
+  z-index: 2;
+}
 
-    @include mobile {
-      padding-top: $spacing-24;
-    }
-  }
-
-  // --- Content ---
-  &__content {
-    max-width: 900px;
-  }
-
-  // --- Eyebrow ---
-  &__eyebrow {
-    @include label-text;
-    display: inline-block;
-    margin-bottom: $spacing-6;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
-
-    .hero--loaded & {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  // --- Title ---
-  &__title {
-    @include heading-style;
-    font-size: clamp(3.5rem, 12vw, 10rem);
-    line-height: 0.9;
-    color: $color-white;
-    margin-bottom: $spacing-8;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
-
-    em {
-      font-style: italic;
-      color: $color-accent;
-    }
-
-    .hero--loaded & {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  // --- Subtitle ---
-  &__subtitle {
-    @include body-text;
-    max-width: 550px;
-    margin-bottom: $spacing-10;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out 0.5s, transform 0.6s ease-out 0.5s;
-
-    .hero--loaded & {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  // --- Actions ---
-  &__actions {
-    display: flex;
-    gap: $spacing-4;
-    flex-wrap: wrap;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out 0.7s, transform 0.6s ease-out 0.7s;
-
-    .hero--loaded & {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @include mobile {
-      flex-direction: column;
-
-      .btn {
-        width: 100%;
-      }
-    }
-  }
-
-  // --- Scroll Indicator ---
-  &__scroll-indicator {
-    position: absolute;
-    bottom: $spacing-16;
-    right: $spacing-16;
-    writing-mode: vertical-rl;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.6s ease-out 1s, transform 0.6s ease-out 1s;
-
-    .hero--loaded & {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    span {
-      font-family: $font-mono;
-      font-size: $font-size-xs;
-      letter-spacing: $letter-spacing-widest;
-      color: $color-gray-600;
-      animation: bounce 2s infinite;
-    }
-
-    @include mobile {
-      display: none;
-    }
-  }
-
-  // --- Background ---
-  &__background {
-    @include absolute-fill;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &__grid-lines {
-    @include absolute-fill;
-    @include grid-background;
-    opacity: 0.5;
-  }
-
-  // --- Reduced Motion ---
-  @media (prefers-reduced-motion: reduce) {
-    &__eyebrow,
-    &__title,
-    &__subtitle,
-    &__actions,
-    &__scroll-indicator {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-
-    &__scroll-indicator span {
-      animation: none;
-    }
+@media (max-width: 768px) {
+  .hero__container {
+    padding: var(--spacing-24) var(--spacing-6) var(--spacing-16);
   }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+.hero__content {
+  max-width: 900px;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-6);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.hero--loaded .hero__eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  line-height: 0.9;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-8);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.hero--loaded .hero__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: var(--spacing-10);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out 0.5s, transform 0.6s ease-out 0.5s;
+}
+
+.hero--loaded .hero__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out 0.7s, transform 0.6s ease-out 0.7s;
+}
+
+.hero--loaded .hero__actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero__actions {
+    flex-direction: column;
   }
-  50% {
-    transform: translateY(10px);
+
+  .hero__actions .btn {
+    width: 100%;
   }
+}
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-16);
+  right: var(--spacing-16);
+  writing-mode: vertical-rl;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease-out 1s, transform 0.6s ease-out 1s;
+}
+
+.hero--loaded .hero__scroll-indicator {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__scroll-indicator span {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  color: var(--color-gray-600);
+  animation: bounce 2s infinite;
+}
+
+@media (max-width: 768px) {
+  .hero__scroll-indicator {
+    display: none;
+  }
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
 }

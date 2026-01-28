@@ -1,55 +1,59 @@
-// ============================================
-// NEXUS CNC - ESTILOS: Stats
-// ============================================
+/* Stats Component */
 
 .stats {
   position: relative;
   z-index: 1;
-  border-top: 1px solid $border-color-default;
-  border-bottom: 1px solid $border-color-default;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
 
-  &__container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: $container-max-width;
-    margin: 0 auto;
+.stats__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
 
-    @include tablet-down {
-      grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 1024px) {
+  .stats__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    @include mobile {
-      grid-template-columns: 1fr;
-    }
+@media (max-width: 768px) {
+  .stats__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stats .stat-card {
+  padding: var(--spacing-12) var(--spacing-8);
+  text-align: center;
+  border-right: 1px solid var(--border-color);
+}
+
+.stats .stat-card:last-child {
+  border-right: none;
+}
+
+@media (max-width: 1024px) {
+  .stats .stat-card:nth-child(2n) {
+    border-right: none;
   }
 
-  .stat-card {
-    padding: $spacing-12 $spacing-8;
-    text-align: center;
-    border-right: 1px solid $border-color-default;
+  .stats .stat-card:nth-child(1),
+  .stats .stat-card:nth-child(2) {
+    border-bottom: 1px solid var(--border-color);
+  }
+}
 
-    &:last-child {
-      border-right: none;
-    }
+@media (max-width: 768px) {
+  .stats .stat-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
 
-    @include tablet-down {
-      &:nth-child(2n) {
-        border-right: none;
-      }
-
-      &:nth-child(1),
-      &:nth-child(2) {
-        border-bottom: 1px solid $border-color-default;
-      }
-    }
-
-    @include mobile {
-      border-right: none;
-      border-bottom: 1px solid $border-color-default;
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
+  .stats .stat-card:last-child {
+    border-bottom: none;
   }
 }

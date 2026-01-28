@@ -1,6 +1,4 @@
-// ============================================
-// NEXUS CNC - ESTILOS: TechCard
-// ============================================
+/* TechCard Component */
 
 .tech-card {
   display: flex;
@@ -8,79 +6,64 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: $spacing-6;
-  background: $color-black;
-  border: 1px solid $border-color-default;
+  padding: var(--spacing-6);
+  background: var(--color-black);
+  border: 1px solid var(--border-color);
   text-decoration: none;
   color: inherit;
-  transition: 
-    border-color $transition-normal,
-    background $transition-normal,
-    opacity 0.5s ease-out,
-    transform 0.5s ease-out;
-  
-  // Animation initial state
   opacity: 0;
   transform: translateY(20px);
-
-  &--visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  // --- Name ---
-  &__name {
-    font-family: $font-mono;
-    font-size: $font-size-base;
-    font-weight: $font-weight-bold;
-    color: $color-white;
-    margin-bottom: $spacing-2;
-  }
-
-  // --- Description ---
-  &__description {
-    font-family: $font-mono;
-    font-size: $font-size-xs;
-    color: $color-gray-600;
-  }
-
-  // --- Hover State ---
-  &:hover {
-    border-color: $color-accent;
-    background: $color-black-light;
-  }
-
-  // --- Link variant ---
-  a#{&} {
-    cursor: pointer;
-
-    &:hover {
-      .tech-card__name {
-        color: $color-accent;
-      }
-    }
-  }
-
-  // --- Reduced Motion ---
-  @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
-    transform: none;
-    transition: border-color $transition-normal, background $transition-normal;
-  }
+  transition: 
+    border-color var(--transition-normal),
+    background var(--transition-normal),
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
 }
 
-// --- Tech Grid ---
+.tech-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-black-light);
+}
+
+.tech-card__name {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-2);
+}
+
+a.tech-card:hover .tech-card__name {
+  color: var(--color-accent);
+}
+
+.tech-card__description {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+}
+
+/* Tech Grid */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: $spacing-6;
+  gap: var(--spacing-6);
+}
 
-  @include tablet-down {
+@media (max-width: 1024px) {
+  .tech-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  @include mobile {
+@media (max-width: 768px) {
+  .tech-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-4;
+    gap: var(--spacing-4);
   }
 }

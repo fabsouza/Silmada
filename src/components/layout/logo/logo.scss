@@ -1,57 +1,30 @@
-// ============================================
-// NEXUS CNC - ESTILOS: Logo
-// ============================================
+/* Logo Component */
 
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: $spacing-2;
+  gap: var(--spacing-2);
+}
 
-  // --- Text ---
-  &__text {
-    font-family: $font-mono;
-    font-weight: $font-weight-bold;
-    letter-spacing: $letter-spacing-widest;
-    color: $color-white;
-  }
+.logo__text {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--color-white);
+}
 
-  &__accent {
-    color: $color-accent;
-  }
+.logo__accent {
+  color: var(--color-accent);
+}
 
-  // --- Sizes ---
-  &--sm {
-    .logo__text {
-      font-size: $font-size-base;
-    }
-  }
+.logo--sm .logo__text {
+  font-size: var(--font-size-base);
+}
 
-  &--md {
-    .logo__text {
-      font-size: $font-size-lg;
-    }
-  }
+.logo--md .logo__text {
+  font-size: var(--font-size-lg);
+}
 
-  &--lg {
-    .logo__text {
-      font-size: $font-size-2xl;
-    }
-  }
-
-  // --- Variants ---
-  &--light {
-    .logo__text {
-      color: $color-white;
-    }
-  }
-
-  &--dark {
-    .logo__text {
-      color: $color-black;
-    }
-
-    .logo__accent {
-      color: $color-accent;
-    }
-  }
+.logo--lg .logo__text {
+  font-size: var(--font-size-2xl);
 }

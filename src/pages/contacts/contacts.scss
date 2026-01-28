@@ -1,237 +1,300 @@
-// ============================================
-// NEXUS CNC - ESTILOS: Contacts Page
-// ============================================
+/* Contacts Page */
 
 .contacts-page {
   position: relative;
+}
 
-  &__container {
-    @include container;
-  }
+.contacts-page__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--spacing-16);
+}
 
-  // --- Hero Section ---
-  &__hero {
-    padding: $spacing-32 0 $spacing-16;
-    border-bottom: 1px solid $border-color-default;
-
-    @include mobile {
-      padding: $spacing-24 0 $spacing-12;
-    }
-  }
-
-  &__eyebrow {
-    @include label-text;
-    display: block;
-    margin-bottom: $spacing-4;
-  }
-
-  &__title {
-    @include heading-style;
-    font-size: $font-size-6xl;
-    line-height: 0.95;
-    color: $color-white;
-    margin-bottom: $spacing-8;
-
-    em {
-      font-style: italic;
-      color: $color-accent;
-    }
-
-    @include tablet-down {
-      font-size: $font-size-5xl;
-    }
-
-    @include mobile {
-      font-size: $font-size-4xl;
-    }
-  }
-
-  &__intro {
-    @include body-text;
-    max-width: 600px;
-    font-size: $font-size-md;
-  }
-
-  // --- Main Section ---
-  &__main {
-    @include section-padding;
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: $spacing-16;
-
-    @include tablet-down {
-      grid-template-columns: 1fr;
-      gap: $spacing-12;
-    }
-  }
-
-  // --- Contact Info ---
-  &__info {
-    padding-right: $spacing-8;
-    border-right: 1px solid $border-color-default;
-
-    @include tablet-down {
-      padding-right: 0;
-      border-right: none;
-      padding-bottom: $spacing-12;
-      border-bottom: 1px solid $border-color-default;
-    }
-  }
-
-  &__info-title,
-  &__form-title {
-    @include heading-style;
-    font-size: $font-size-2xl;
-    color: $color-white;
-    margin-bottom: $spacing-8;
-  }
-
-  &__info-list {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-8;
-  }
-
-  &__info-item {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-2;
-  }
-
-  &__info-label {
-    @include label-text;
-    font-size: $font-size-xs;
-  }
-
-  &__info-value {
-    font-family: $font-primary;
-    font-size: $font-size-lg;
-    color: $color-white;
-    text-decoration: none;
-    transition: color $transition-normal;
-
-    &:hover {
-      color: $color-accent;
-    }
-  }
-
-  &__address {
-    font-style: normal;
-    line-height: $line-height-relaxed;
-    
-    &:hover {
-      color: $color-white;
-    }
-  }
-
-  // --- Form ---
-  &__form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-6;
-
-    @include mobile {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__success {
-    text-align: center;
-    padding: $spacing-12 $spacing-8;
-    background: $color-success-light;
-    border: 1px solid $color-success;
-  }
-
-  &__success-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: $color-success;
-    color: $color-white;
-    font-size: $font-size-2xl;
-    margin-bottom: $spacing-6;
-  }
-
-  &__success h3 {
-    @include heading-style;
-    font-size: $font-size-2xl;
-    color: $color-white;
-    margin-bottom: $spacing-3;
-  }
-
-  &__success p {
-    @include body-text;
-    margin-bottom: $spacing-6;
-  }
-
-  &__error {
-    grid-column: span 2;
-    padding: $spacing-4;
-    background: $color-error-light;
-    border: 1px solid $color-error;
-    color: $color-error;
-    font-size: $font-size-sm;
-
-    @include mobile {
-      grid-column: span 1;
-    }
+@media (max-width: 1024px) {
+  .contacts-page__container {
+    padding: 0 var(--spacing-8);
   }
 }
 
-// --- Form Field ---
+@media (max-width: 768px) {
+  .contacts-page__container {
+    padding: 0 var(--spacing-6);
+  }
+}
+
+.contacts-page__hero {
+  padding: var(--spacing-32) 0 var(--spacing-16);
+  border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .contacts-page__hero {
+    padding: var(--spacing-24) 0 var(--spacing-12);
+  }
+}
+
+.contacts-page__eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-4);
+}
+
+.contacts-page__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-6xl);
+  line-height: 0.95;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-8);
+}
+
+.contacts-page__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+@media (max-width: 1024px) {
+  .contacts-page__title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-page__title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.contacts-page__intro {
+  font-size: var(--font-size-md);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.contacts-page__main {
+  padding: var(--spacing-24) 0;
+}
+
+@media (max-width: 1024px) {
+  .contacts-page__main {
+    padding: var(--spacing-20) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-page__main {
+    padding: var(--spacing-16) 0;
+  }
+}
+
+.contacts-page__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-16);
+}
+
+@media (max-width: 1024px) {
+  .contacts-page__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-12);
+  }
+}
+
+.contacts-page__info {
+  padding-right: var(--spacing-8);
+  border-right: 1px solid var(--border-color);
+}
+
+@media (max-width: 1024px) {
+  .contacts-page__info {
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: var(--spacing-12);
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.contacts-page__info-title,
+.contacts-page__form-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-8);
+}
+
+.contacts-page__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.contacts-page__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.contacts-page__info-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.contacts-page__info-value {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.contacts-page__info-value:hover {
+  color: var(--color-accent);
+}
+
+.contacts-page__address {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.contacts-page__address:hover {
+  color: var(--color-white);
+}
+
+/* Form */
+.contacts-page__form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-6);
+}
+
+@media (max-width: 768px) {
+  .contacts-page__form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contacts-page__success {
+  text-align: center;
+  padding: var(--spacing-12) var(--spacing-8);
+  background: var(--color-success-light);
+  border: 1px solid var(--color-success);
+}
+
+.contacts-page__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-6);
+}
+
+.contacts-page__success h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-3);
+}
+
+.contacts-page__success p {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-6);
+}
+
+.contacts-page__error {
+  grid-column: span 2;
+  padding: var(--spacing-4);
+  background: var(--color-error-light);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+  .contacts-page__error {
+    grid-column: span 1;
+  }
+}
+
+/* Form Field */
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: $spacing-2;
+  gap: var(--spacing-2);
+}
 
-  &--full {
-    grid-column: span 2;
+.form-field--full {
+  grid-column: span 2;
+}
 
-    @include mobile {
-      grid-column: span 1;
-    }
+@media (max-width: 768px) {
+  .form-field--full {
+    grid-column: span 1;
   }
+}
 
-  &__label {
-    font-family: $font-mono;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-bold;
-    letter-spacing: $letter-spacing-wide;
-    text-transform: uppercase;
-    color: $color-white;
+.form-field__label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
 
-    .required {
-      color: $color-accent;
-    }
-  }
+.form-field__label .required {
+  color: var(--color-accent);
+}
 
-  &__input {
-    @include input-base;
+.form-field__input {
+  width: 100%;
+  padding: var(--spacing-4);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  background: var(--color-black-lighter);
+  border: 1px solid var(--border-color);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
 
-    &--error {
-      border-color: $color-error;
+.form-field__input::placeholder {
+  color: var(--color-gray-500);
+}
 
-      &:focus {
-        border-color: $color-error;
-        box-shadow: 0 0 0 2px $color-error-light;
-      }
-    }
-  }
+.form-field__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
 
-  &__textarea {
-    min-height: 150px;
-    resize: vertical;
-  }
+.form-field__input--error {
+  border-color: var(--color-error);
+}
 
-  &__error {
-    font-family: $font-mono;
-    font-size: $font-size-xs;
-    color: $color-error;
-  }
+.form-field__input--error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 2px var(--color-error-light);
+}
+
+.form-field__textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-field__error {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
 }

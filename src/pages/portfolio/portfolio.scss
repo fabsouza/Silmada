@@ -1,298 +1,356 @@
-// ============================================
-// NEXUS CNC - ESTILOS: Portfolio Page
-// ============================================
+/* Portfolio Page */
 
 .portfolio-page {
   position: relative;
+}
 
-  &__container {
-    @include container;
-  }
+.portfolio-page__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--spacing-16);
+}
 
-  // --- Hero Section ---
-  &__hero {
-    padding: $spacing-32 0 $spacing-16;
-    border-bottom: 1px solid $border-color-default;
-
-    @include mobile {
-      padding: $spacing-24 0 $spacing-12;
-    }
-  }
-
-  &__eyebrow {
-    @include label-text;
-    display: block;
-    margin-bottom: $spacing-4;
-  }
-
-  &__title {
-    @include heading-style;
-    font-size: $font-size-6xl;
-    line-height: 0.95;
-    color: $color-white;
-    margin-bottom: $spacing-8;
-
-    em {
-      font-style: italic;
-      color: $color-accent;
-    }
-
-    @include tablet-down {
-      font-size: $font-size-5xl;
-    }
-
-    @include mobile {
-      font-size: $font-size-4xl;
-    }
-  }
-
-  &__intro {
-    @include body-text;
-    max-width: 600px;
-    font-size: $font-size-md;
-  }
-
-  // --- Filter ---
-  &__filter {
-    padding: $spacing-8 0;
-    border-bottom: 1px solid $border-color-default;
-  }
-
-  &__categories {
-    display: flex;
-    gap: $spacing-2;
-    flex-wrap: wrap;
-  }
-
-  &__category {
-    @include button-base;
-    padding: $spacing-2 $spacing-5;
-    background: transparent;
-    color: $color-gray-600;
-    border: 1px solid $border-color-default;
-
-    &:hover {
-      color: $color-white;
-      border-color: $color-white;
-    }
-
-    &--active {
-      background: $color-accent;
-      color: $color-white;
-      border-color: $color-accent;
-
-      &:hover {
-        background: $color-accent-hover;
-        border-color: $color-accent-hover;
-      }
-    }
-  }
-
-  // --- Projects ---
-  &__projects {
-    @include section-padding;
-  }
-
-  &__empty {
-    @include body-text;
-    text-align: center;
-    padding: $spacing-16;
-  }
-
-  // --- CTA Section ---
-  &__cta {
-    @include section-padding;
-    border-top: 1px solid $border-color-default;
-  }
-
-  &__cta-content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  &__cta-title {
-    @include heading-style;
-    font-size: $font-size-4xl;
-    color: $color-white;
-    margin-bottom: $spacing-6;
-
-    em {
-      font-style: italic;
-      color: $color-accent;
-    }
-
-    @include mobile {
-      font-size: $font-size-3xl;
-    }
-  }
-
-  &__cta-text {
-    @include body-text;
-    margin-bottom: $spacing-8;
+@media (max-width: 1024px) {
+  .portfolio-page__container {
+    padding: 0 var(--spacing-8);
   }
 }
 
-// --- Project Modal ---
+@media (max-width: 768px) {
+  .portfolio-page__container {
+    padding: 0 var(--spacing-6);
+  }
+}
+
+.portfolio-page__hero {
+  padding: var(--spacing-32) 0 var(--spacing-16);
+  border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .portfolio-page__hero {
+    padding: var(--spacing-24) 0 var(--spacing-12);
+  }
+}
+
+.portfolio-page__eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-4);
+}
+
+.portfolio-page__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-6xl);
+  line-height: 0.95;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-8);
+}
+
+.portfolio-page__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+@media (max-width: 1024px) {
+  .portfolio-page__title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-page__title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.portfolio-page__intro {
+  font-size: var(--font-size-md);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.portfolio-page__filter {
+  padding: var(--spacing-8) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.portfolio-page__categories {
+  display: flex;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+.portfolio-page__category {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-5);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--color-gray-600);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.portfolio-page__category:hover {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.portfolio-page__category--active {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+
+.portfolio-page__category--active:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.portfolio-page__projects {
+  padding: var(--spacing-24) 0;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-page__projects {
+    padding: var(--spacing-20) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-page__projects {
+    padding: var(--spacing-16) 0;
+  }
+}
+
+.portfolio-page__empty {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  text-align: center;
+  padding: var(--spacing-16);
+}
+
+.portfolio-page__cta {
+  padding: var(--spacing-24) 0;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 1024px) {
+  .portfolio-page__cta {
+    padding: var(--spacing-20) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-page__cta {
+    padding: var(--spacing-16) 0;
+  }
+}
+
+.portfolio-page__cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.portfolio-page__cta-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-6);
+}
+
+.portfolio-page__cta-title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .portfolio-page__cta-title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.portfolio-page__cta-text {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-8);
+}
+
+/* Project Modal */
 .project-modal {
-  @include fixed-fill;
-  @include flex-center;
-  background: rgba($color-black, 0.9);
-  z-index: $z-index-modal;
-  padding: $spacing-8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.9);
+  z-index: var(--z-modal);
+  padding: var(--spacing-8);
   animation: fadeIn 0.3s ease-out;
-
-  &__content {
-    width: 100%;
-    max-width: 800px;
-    max-height: 90vh;
-    background: $color-black-lighter;
-    border: 1px solid $border-color-default;
-    overflow-y: auto;
-    position: relative;
-    animation: slideUp 0.3s ease-out;
-
-    @include custom-scrollbar;
-  }
-
-  &__close {
-    position: absolute;
-    top: $spacing-4;
-    right: $spacing-4;
-    width: 40px;
-    height: 40px;
-    @include flex-center;
-    background: transparent;
-    border: 1px solid $border-color-default;
-    color: $color-white;
-    font-size: $font-size-2xl;
-    cursor: pointer;
-    z-index: 1;
-    transition: all $transition-normal;
-
-    &:hover {
-      background: $color-accent;
-      border-color: $color-accent;
-    }
-  }
-
-  &__header {
-    padding: $spacing-10 $spacing-8;
-    border-bottom: 1px solid $border-color-default;
-  }
-
-  &__category {
-    @include label-text;
-    display: block;
-    margin-bottom: $spacing-2;
-  }
-
-  &__title {
-    @include heading-style;
-    font-size: $font-size-3xl;
-    color: $color-white;
-    margin-bottom: $spacing-4;
-  }
-
-  &__meta {
-    display: flex;
-    gap: $spacing-6;
-    flex-wrap: wrap;
-
-    span {
-      font-family: $font-mono;
-      font-size: $font-size-sm;
-      color: $color-gray-600;
-    }
-  }
-
-  &__body {
-    padding: $spacing-8;
-  }
-
-  &__description {
-    @include body-text;
-    font-size: $font-size-md;
-    margin-bottom: $spacing-8;
-    white-space: pre-line;
-  }
-
-  &__specs,
-  &__features,
-  &__tech {
-    margin-bottom: $spacing-8;
-
-    h3 {
-      @include label-text;
-      margin-bottom: $spacing-4;
-    }
-  }
-
-  &__spec-item {
-    display: flex;
-    justify-content: space-between;
-    padding: $spacing-2 0;
-    border-bottom: 1px solid $border-color-default;
-
-    dt {
-      font-size: $font-size-sm;
-      color: $color-gray-600;
-    }
-
-    dd {
-      font-family: $font-mono;
-      font-size: $font-size-sm;
-      color: $color-white;
-    }
-  }
-
-  &__features ul {
-    list-style: none;
-
-    li {
-      position: relative;
-      padding-left: $spacing-6;
-      margin-bottom: $spacing-2;
-      font-size: $font-size-sm;
-      color: $color-gray-400;
-
-      &::before {
-        content: '→';
-        position: absolute;
-        left: 0;
-        color: $color-accent;
-      }
-    }
-  }
-
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-2;
-  }
-
-  &__tag {
-    font-family: $font-mono;
-    font-size: $font-size-xs;
-    padding: $spacing-1 $spacing-3;
-    background: $color-black;
-    border: 1px solid $border-color-default;
-    color: $color-gray-500;
-  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.project-modal__content {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: var(--color-black-lighter);
+  border: 1px solid var(--border-color);
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.project-modal__close {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+  cursor: pointer;
+  z-index: 1;
+  transition: all var(--transition-normal);
+}
+
+.project-modal__close:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.project-modal__header {
+  padding: var(--spacing-10) var(--spacing-8);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-modal__category {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-2);
+}
+
+.project-modal__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-4);
+}
+
+.project-modal__meta {
+  display: flex;
+  gap: var(--spacing-6);
+  flex-wrap: wrap;
+}
+
+.project-modal__meta span {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.project-modal__body {
+  padding: var(--spacing-8);
+}
+
+.project-modal__description {
+  font-size: var(--font-size-md);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-8);
+  white-space: pre-line;
+}
+
+.project-modal__specs,
+.project-modal__features,
+.project-modal__tech {
+  margin-bottom: var(--spacing-8);
+}
+
+.project-modal__specs h3,
+.project-modal__features h3,
+.project-modal__tech h3 {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-4);
+}
+
+.project-modal__spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-2) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-modal__spec-item dt {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.project-modal__spec-item dd {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+}
+
+.project-modal__features ul {
+  list-style: none;
+}
+
+.project-modal__features li {
+  position: relative;
+  padding-left: var(--spacing-6);
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+}
+
+.project-modal__features li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.project-modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.project-modal__tag {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--color-black);
+  border: 1px solid var(--border-color);
+  color: var(--color-gray-500);
 }

@@ -1,119 +1,118 @@
-// ============================================
-// NEXUS CNC - ESTILOS: ServiceCard
-// ============================================
+/* ServiceCard Component */
 
 .service-card {
-  @include card-base;
-  @include card-accent-top;
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: var(--spacing-8);
+  background: var(--color-black-lighter);
   text-decoration: none;
   color: inherit;
   overflow: hidden;
-  
-  // Animation initial state
   opacity: 0;
   transform: translateY(30px);
   transition: 
     opacity 0.5s ease-out,
     transform 0.5s ease-out,
     background 0.3s ease;
+}
 
-  &--visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.service-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  // --- Icon ---
-  &__icon {
-    display: block;
-    font-size: $font-size-4xl;
-    margin-bottom: $spacing-6;
-    line-height: 1;
-    transition: transform $transition-normal;
-  }
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
 
-  // --- Title ---
-  &__title {
-    @include heading-style;
-    font-size: $font-size-2xl;
-    color: $color-white;
-    margin-bottom: $spacing-4;
-    transition: color $transition-normal;
+.service-card:hover {
+  background: var(--color-black-light);
+}
 
-    @include mobile {
-      font-size: $font-size-xl;
-    }
-  }
+.service-card:hover::before {
+  transform: scaleX(1);
+}
 
-  // --- Description ---
-  &__description {
-    @include body-text;
-    flex: 1;
-    margin-bottom: 0;
-  }
+.service-card__icon {
+  display: block;
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-6);
+  line-height: 1;
+  transition: transform var(--transition-normal);
+}
 
-  // --- Arrow ---
-  &__arrow {
-    position: absolute;
-    bottom: $spacing-8;
-    right: $spacing-8;
-    font-size: $font-size-2xl;
-    color: $color-accent;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: 
-      opacity $transition-normal,
-      transform $transition-normal;
-  }
+.service-card:hover .service-card__icon {
+  transform: scale(1.1);
+}
 
-  // --- Hover State ---
-  &:hover {
-    .service-card__icon {
-      transform: scale(1.1);
-    }
+.service-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-4);
+  transition: color var(--transition-normal);
+}
 
-    .service-card__title {
-      color: $color-accent;
-    }
-
-    .service-card__arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  // --- Link variant (when clickable) ---
-  a#{&} {
-    cursor: pointer;
-  }
-
-  // --- Reduced Motion ---
-  @media (prefers-reduced-motion: reduce) {
-    opacity: 1;
-    transform: none;
-    transition: background 0.3s ease;
-
-    .service-card__icon,
-    .service-card__arrow {
-      transition: none;
-    }
+@media (max-width: 768px) {
+  .service-card__title {
+    font-size: var(--font-size-xl);
   }
 }
 
-// --- Grid Container for Service Cards ---
+.service-card:hover .service-card__title {
+  color: var(--color-accent);
+}
+
+.service-card__description {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.service-card__arrow {
+  position: absolute;
+  bottom: var(--spacing-8);
+  right: var(--spacing-8);
+  font-size: var(--font-size-2xl);
+  color: var(--color-accent);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.service-card:hover .service-card__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Services Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  background: $border-color-default;
+  background: var(--border-color);
+}
 
-  @include tablet-down {
+@media (max-width: 1024px) {
+  .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  @include mobile {
+@media (max-width: 768px) {
+  .services-grid {
     grid-template-columns: 1fr;
   }
 }
