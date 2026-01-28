@@ -1,0 +1,141 @@
+// ============================================
+// NEXUS CNC - ESTILOS: SectionTitle
+// ============================================
+
+.section-title {
+  margin-bottom: $spacing-16;
+  padding-bottom: $spacing-8;
+  border-bottom: $border-width-thin solid $border-color-default;
+
+  // --- Header ---
+  &__header {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $spacing-4;
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  // --- Number ---
+  &__number {
+    @include label-text;
+    order: 1;
+
+    @include mobile {
+      order: 0;
+      margin-bottom: $spacing-2;
+    }
+  }
+
+  // --- Title ---
+  &__text {
+    @include heading-style;
+    font-size: $font-size-5xl;
+    color: $color-white;
+    order: 0;
+
+    @include tablet-down {
+      font-size: $font-size-4xl;
+    }
+
+    @include mobile {
+      font-size: $font-size-3xl;
+    }
+
+    em {
+      font-style: italic;
+      color: $color-accent;
+    }
+  }
+
+  // --- Subtitle ---
+  &__subtitle {
+    @include body-text;
+    max-width: 600px;
+    margin-top: $spacing-4;
+  }
+
+  // --- Alignment Variants ---
+  &--center {
+    text-align: center;
+
+    .section-title__header {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section-title__number {
+      order: 0;
+      margin-bottom: $spacing-2;
+    }
+
+    .section-title__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &--right {
+    text-align: right;
+
+    .section-title__header {
+      flex-direction: row-reverse;
+    }
+
+    .section-title__subtitle {
+      margin-left: auto;
+    }
+  }
+
+  // --- Light Variant ---
+  &--light {
+    .section-title__text {
+      color: $color-white;
+    }
+  }
+
+  // --- Animation ---
+  &--animated {
+    .section-title__number,
+    .section-title__text,
+    .section-title__subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .section-title__text {
+      transition-delay: 0.1s;
+    }
+
+    .section-title__subtitle {
+      transition-delay: 0.2s;
+    }
+  }
+
+  &--visible {
+    .section-title__number,
+    .section-title__text,
+    .section-title__subtitle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // --- Reduced Motion ---
+  @media (prefers-reduced-motion: reduce) {
+    &--animated {
+      .section-title__number,
+      .section-title__text,
+      .section-title__subtitle {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  }
+}

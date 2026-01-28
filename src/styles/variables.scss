@@ -1,0 +1,285 @@
+// ============================================
+// NEXUS CNC - VARIÁVEIS DE DESIGN SYSTEM
+// ============================================
+// Este ficheiro contém TODAS as variáveis de cor
+// e design tokens do projeto. Altere aqui para
+// modificar rapidamente todo o website.
+// ============================================
+
+// ============================================
+// 🎨 PALETA DE CORES PRINCIPAL
+// ============================================
+
+// --- Cores Base ---
+$color-black: #0a0a0a;                    // Fundo principal
+$color-black-light: #111111;              // Fundo secundário (hover)
+$color-black-lighter: #1a1a1a;            // Fundo terciário (cards)
+
+$color-white: #f5f5f0;                    // Texto principal
+$color-white-pure: #ffffff;               // Branco puro
+$color-white-off: #faf8f5;                // Branco creme
+
+// --- Cor de Destaque (Accent) ---
+$color-accent: #ff3d00;                   // Laranja principal (CTA, destaques)
+$color-accent-hover: #ff5722;             // Laranja hover
+$color-accent-light: rgba(255, 61, 0, 0.1);  // Laranja transparente
+$color-accent-dark: #e53600;              // Laranja escuro
+
+// --- Escala de Cinzentos ---
+$color-gray-100: #f5f5f5;                 // Cinza muito claro
+$color-gray-200: #e0e0e0;                 // Cinza claro
+$color-gray-300: #bdbdbd;                 // Cinza médio-claro
+$color-gray-400: #9e9e9e;                 // Cinza médio
+$color-gray-500: #757575;                 // Cinza médio-escuro
+$color-gray-600: #6b6b6b;                 // Cinza para texto secundário
+$color-gray-700: #424242;                 // Cinza escuro
+$color-gray-800: #2a2a2a;                 // Cinza muito escuro
+$color-gray-900: #1a1a1a;                 // Quase preto
+
+// --- Cores de Estado ---
+$color-success: #4caf50;                  // Verde sucesso
+$color-success-light: rgba(76, 175, 80, 0.1);
+$color-error: #f44336;                    // Vermelho erro
+$color-error-light: rgba(244, 67, 54, 0.1);
+$color-warning: #ff9800;                  // Amarelo aviso
+$color-warning-light: rgba(255, 152, 0, 0.1);
+$color-info: #2196f3;                     // Azul informação
+$color-info-light: rgba(33, 150, 243, 0.1);
+
+// --- Cores Industriais (Complementares) ---
+$color-steel: #607d8b;                    // Azul aço
+$color-steel-light: #78909c;
+$color-steel-dark: #455a64;
+$color-copper: #bf6c3b;                   // Cobre
+$color-brass: #c9a227;                    // Latão
+$color-chrome: #dfe4e7;                   // Cromado
+
+// ============================================
+// 🔤 TIPOGRAFIA
+// ============================================
+
+// --- Famílias de Fontes ---
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-heading: 'Instrument Serif', Georgia, serif;
+$font-mono: 'Space Mono', 'Fira Code', monospace;
+
+// --- Tamanhos de Fonte (Desktop) ---
+$font-size-xs: 0.7rem;                    // 11.2px - Labels pequenas
+$font-size-sm: 0.75rem;                   // 12px - Texto pequeno
+$font-size-base: 0.85rem;                 // 13.6px - Texto corpo
+$font-size-md: 1rem;                      // 16px - Texto médio
+$font-size-lg: 1.125rem;                  // 18px - Texto grande
+$font-size-xl: 1.25rem;                   // 20px - Subtítulos
+$font-size-2xl: 1.5rem;                   // 24px - Títulos pequenos
+$font-size-3xl: 2rem;                     // 32px - Títulos médios
+$font-size-4xl: 2.5rem;                   // 40px - Títulos grandes
+$font-size-5xl: 3.5rem;                   // 56px - Títulos secção
+$font-size-6xl: 5rem;                     // 80px - Hero títulos
+$font-size-7xl: 8rem;                     // 128px - Display
+
+// --- Pesos de Fonte ---
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// --- Altura de Linha ---
+$line-height-tight: 0.9;
+$line-height-snug: 1.1;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.7;
+$line-height-loose: 2;
+
+// --- Espaçamento de Letras ---
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.1em;
+$letter-spacing-wider: 0.15em;
+$letter-spacing-widest: 0.3em;
+
+// ============================================
+// 📐 ESPAÇAMENTO
+// ============================================
+
+$spacing-0: 0;
+$spacing-1: 0.25rem;                      // 4px
+$spacing-2: 0.5rem;                       // 8px
+$spacing-3: 0.75rem;                      // 12px
+$spacing-4: 1rem;                         // 16px
+$spacing-5: 1.25rem;                      // 20px
+$spacing-6: 1.5rem;                       // 24px
+$spacing-8: 2rem;                         // 32px
+$spacing-10: 2.5rem;                      // 40px
+$spacing-12: 3rem;                        // 48px
+$spacing-16: 4rem;                        // 64px
+$spacing-20: 5rem;                        // 80px
+$spacing-24: 6rem;                        // 96px
+$spacing-32: 8rem;                        // 128px
+
+// --- Padding de Secções ---
+$section-padding-mobile: $spacing-16 $spacing-6;
+$section-padding-tablet: $spacing-20 $spacing-8;
+$section-padding-desktop: $spacing-24 $spacing-16;
+
+// ============================================
+// 🎭 SOMBRAS
+// ============================================
+
+$shadow-none: none;
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.25);
+$shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.3);
+$shadow-accent: 0 4px 20px rgba(255, 61, 0, 0.3);
+$shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// ============================================
+// 🔲 BORDAS
+// ============================================
+
+$border-radius-none: 0;
+$border-radius-sm: 0.125rem;              // 2px
+$border-radius-md: 0.25rem;               // 4px
+$border-radius-lg: 0.5rem;                // 8px
+$border-radius-xl: 1rem;                  // 16px
+$border-radius-full: 9999px;              // Círculo
+
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 3px;
+
+$border-color-default: rgba(107, 107, 107, 0.15);
+$border-color-light: rgba(255, 255, 255, 0.1);
+$border-color-accent: $color-accent;
+
+// ============================================
+// ⏱️ TRANSIÇÕES
+// ============================================
+
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+$transition-slower: 0.8s ease;
+
+$transition-timing-ease: ease;
+$transition-timing-ease-in: ease-in;
+$transition-timing-ease-out: ease-out;
+$transition-timing-ease-in-out: ease-in-out;
+$transition-timing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$transition-timing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// ============================================
+// 📱 Z-INDEX
+// ============================================
+
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 400;
+$z-index-modal: 500;
+$z-index-popover: 600;
+$z-index-tooltip: 700;
+$z-index-toast: 800;
+
+// ============================================
+// 📐 GRID
+// ============================================
+
+$grid-columns: 12;
+$grid-gap: $spacing-8;
+$grid-gap-mobile: $spacing-4;
+
+$container-max-width: 1440px;
+$container-padding: $spacing-16;
+$container-padding-mobile: $spacing-6;
+
+// --- Grid Background ---
+$grid-bg-size: 60px;
+$grid-bg-color: rgba(107, 107, 107, 0.15);
+
+// ============================================
+// 🖼️ COMPONENTES ESPECÍFICOS
+// ============================================
+
+// --- Header ---
+$header-height: 80px;
+$header-height-mobile: 70px;
+$header-bg: transparent;
+$header-bg-scrolled: rgba(10, 10, 10, 0.95);
+
+// --- Hero ---
+$hero-min-height: 100vh;
+$hero-padding-top: 120px;
+
+// --- Cards ---
+$card-bg: $color-black-lighter;
+$card-bg-hover: $color-black-light;
+$card-padding: $spacing-8;
+$card-border-radius: $border-radius-none;
+
+// --- Buttons ---
+$button-padding-sm: $spacing-2 $spacing-4;
+$button-padding-md: $spacing-4 $spacing-8;
+$button-padding-lg: $spacing-5 $spacing-10;
+$button-border-radius: $border-radius-none;
+$button-font-size: $font-size-sm;
+$button-letter-spacing: $letter-spacing-wide;
+
+// --- Forms ---
+$input-bg: $color-black-lighter;
+$input-border: $border-color-default;
+$input-border-focus: $color-accent;
+$input-padding: $spacing-4;
+$input-border-radius: $border-radius-none;
+
+// --- Footer ---
+$footer-bg: $color-black;
+$footer-padding: $spacing-6 $spacing-16;
+
+// ============================================
+// 🔧 MAPAS SASS PARA LOOPS
+// ============================================
+
+$colors: (
+  'black': $color-black,
+  'white': $color-white,
+  'accent': $color-accent,
+  'gray': $color-gray-600,
+  'success': $color-success,
+  'error': $color-error,
+  'warning': $color-warning,
+  'info': $color-info,
+);
+
+$font-sizes: (
+  'xs': $font-size-xs,
+  'sm': $font-size-sm,
+  'base': $font-size-base,
+  'md': $font-size-md,
+  'lg': $font-size-lg,
+  'xl': $font-size-xl,
+  '2xl': $font-size-2xl,
+  '3xl': $font-size-3xl,
+  '4xl': $font-size-4xl,
+  '5xl': $font-size-5xl,
+  '6xl': $font-size-6xl,
+);
+
+$spacings: (
+  '0': $spacing-0,
+  '1': $spacing-1,
+  '2': $spacing-2,
+  '3': $spacing-3,
+  '4': $spacing-4,
+  '5': $spacing-5,
+  '6': $spacing-6,
+  '8': $spacing-8,
+  '10': $spacing-10,
+  '12': $spacing-12,
+  '16': $spacing-16,
+  '20': $spacing-20,
+  '24': $spacing-24,
+  '32': $spacing-32,
+);

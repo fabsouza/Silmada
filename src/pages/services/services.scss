@@ -1,0 +1,152 @@
+// ============================================
+// NEXUS CNC - ESTILOS: Services Page
+// ============================================
+
+.services-page {
+  position: relative;
+
+  &__container {
+    @include container;
+  }
+
+  // --- Hero Section ---
+  &__hero {
+    padding: $spacing-32 0 $spacing-16;
+    border-bottom: 1px solid $border-color-default;
+
+    @include mobile {
+      padding: $spacing-24 0 $spacing-12;
+    }
+  }
+
+  &__eyebrow {
+    @include label-text;
+    display: block;
+    margin-bottom: $spacing-4;
+  }
+
+  &__title {
+    @include heading-style;
+    font-size: $font-size-6xl;
+    line-height: 0.95;
+    color: $color-white;
+    margin-bottom: $spacing-8;
+
+    em {
+      font-style: italic;
+      color: $color-accent;
+    }
+
+    @include tablet-down {
+      font-size: $font-size-5xl;
+    }
+
+    @include mobile {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__intro {
+    @include body-text;
+    max-width: 600px;
+    font-size: $font-size-md;
+  }
+
+  // --- Services List ---
+  &__list {
+    @include section-padding;
+  }
+
+  // --- Details Section ---
+  &__details {
+    @include section-padding;
+    background: $color-black-lighter;
+  }
+
+  &__process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-6;
+
+    @include tablet-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // --- CTA Section ---
+  &__cta {
+    @include section-padding;
+    border-top: 1px solid $border-color-default;
+  }
+
+  &__cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__cta-title {
+    @include heading-style;
+    font-size: $font-size-4xl;
+    color: $color-white;
+    margin-bottom: $spacing-6;
+
+    em {
+      font-style: italic;
+      color: $color-accent;
+    }
+
+    @include mobile {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__cta-text {
+    @include body-text;
+    margin-bottom: $spacing-8;
+  }
+}
+
+// --- Process Step ---
+.process-step {
+  padding: $spacing-8;
+  border: 1px solid $border-color-default;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__number {
+    @include label-text;
+    font-size: $font-size-3xl;
+    display: block;
+    margin-bottom: $spacing-4;
+  }
+
+  &__title {
+    @include heading-style;
+    font-size: $font-size-xl;
+    color: $color-white;
+    margin-bottom: $spacing-3;
+  }
+
+  &__description {
+    @include body-text;
+    font-size: $font-size-sm;
+    margin-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

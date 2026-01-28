@@ -1,0 +1,330 @@
+// ============================================
+// NEXUS CNC - ESTILOS GLOBAIS
+// ============================================
+
+// --- Reset & Box Sizing ---
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// --- HTML & Body ---
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  @include reduced-motion {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  color: $color-white;
+  background-color: $color-black;
+  overflow-x: hidden;
+  min-height: 100vh;
+  
+  @include custom-scrollbar;
+}
+
+// --- Grid Background (Global) ---
+.grid-background {
+  @include fixed-fill;
+  @include grid-background;
+  pointer-events: none;
+  z-index: 0;
+}
+
+// --- Selection ---
+::selection {
+  background: $color-accent;
+  color: $color-white;
+}
+
+// --- Links ---
+a {
+  color: inherit;
+  text-decoration: none;
+  @include transition(color);
+  
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// --- Headings ---
+h1, h2, h3, h4, h5, h6 {
+  @include heading-style;
+  color: $color-white;
+}
+
+h1 {
+  @include responsive-font($font-size-4xl, $font-size-5xl, $font-size-6xl);
+}
+
+h2 {
+  @include responsive-font($font-size-3xl, $font-size-4xl, $font-size-5xl);
+}
+
+h3 {
+  @include responsive-font($font-size-2xl, $font-size-3xl, $font-size-3xl);
+}
+
+h4 {
+  @include responsive-font($font-size-xl, $font-size-2xl, $font-size-2xl);
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-md;
+}
+
+// --- Paragraphs ---
+p {
+  @include body-text;
+  margin-bottom: $spacing-4;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// --- Lists ---
+ul, ol {
+  list-style: none;
+}
+
+// --- Images ---
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// --- Buttons ---
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  
+  @include focus-visible;
+}
+
+// --- Inputs ---
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  
+  @include focus-visible;
+}
+
+textarea {
+  resize: vertical;
+}
+
+// --- Strong & Em ---
+strong, b {
+  font-weight: $font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+// --- Code ---
+code, pre {
+  font-family: $font-mono;
+}
+
+// --- HR ---
+hr {
+  border: none;
+  border-top: $border-width-thin solid $border-color-default;
+  margin: $spacing-8 0;
+}
+
+// --- Main Container ---
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+// --- Section Base ---
+section {
+  position: relative;
+}
+
+// --- Container Utility ---
+.container {
+  @include container;
+}
+
+// --- Section Header Component ---
+.section-header {
+  @include flex-between;
+  margin-bottom: $spacing-16;
+  padding-bottom: $spacing-8;
+  border-bottom: $border-width-thin solid $border-color-default;
+  
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-4;
+  }
+}
+
+.section-number {
+  @include label-text;
+}
+
+.section-title {
+  @include heading-style;
+  @include responsive-font($font-size-3xl, $font-size-4xl, $font-size-5xl);
+  
+  em {
+    font-style: italic;
+    color: $color-accent;
+  }
+}
+
+// --- Text Utilities ---
+.text-accent {
+  color: $color-accent;
+}
+
+.text-muted {
+  color: $color-gray-600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+}
+
+// --- Spacing Utilities ---
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-8 { margin-bottom: $spacing-8; }
+.mb-16 { margin-bottom: $spacing-16; }
+
+.mt-0 { margin-top: 0; }
+.mt-4 { margin-top: $spacing-4; }
+.mt-8 { margin-top: $spacing-8; }
+.mt-16 { margin-top: $spacing-16; }
+
+// --- Display Utilities ---
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+@include mobile {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@include md {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+// --- Animations ---
+.animate-fade-in {
+  @include fade-in;
+}
+
+.animate-slide-up {
+  @include slide-up;
+}
+
+// --- Delay Classes ---
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+// --- Scroll Animation Classes ---
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @include reduced-motion {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// --- Loading States ---
+.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+// --- Focus Styles ---
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+// --- Skip Link (Acessibilidade) ---
+.skip-link {
+  @include visually-hidden;
+  
+  &:focus {
+    position: fixed;
+    top: $spacing-4;
+    left: $spacing-4;
+    z-index: $z-index-toast;
+    padding: $spacing-4 $spacing-6;
+    background: $color-accent;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}

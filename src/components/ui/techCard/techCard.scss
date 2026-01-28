@@ -1,0 +1,86 @@
+// ============================================
+// NEXUS CNC - ESTILOS: TechCard
+// ============================================
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $spacing-6;
+  background: $color-black;
+  border: 1px solid $border-color-default;
+  text-decoration: none;
+  color: inherit;
+  transition: 
+    border-color $transition-normal,
+    background $transition-normal,
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  
+  // Animation initial state
+  opacity: 0;
+  transform: translateY(20px);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // --- Name ---
+  &__name {
+    font-family: $font-mono;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $spacing-2;
+  }
+
+  // --- Description ---
+  &__description {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+  }
+
+  // --- Hover State ---
+  &:hover {
+    border-color: $color-accent;
+    background: $color-black-light;
+  }
+
+  // --- Link variant ---
+  a#{&} {
+    cursor: pointer;
+
+    &:hover {
+      .tech-card__name {
+        color: $color-accent;
+      }
+    }
+  }
+
+  // --- Reduced Motion ---
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: border-color $transition-normal, background $transition-normal;
+  }
+}
+
+// --- Tech Grid ---
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-6;
+
+  @include tablet-down {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-4;
+  }
+}

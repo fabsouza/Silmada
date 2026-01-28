@@ -1,0 +1,115 @@
+// ============================================
+// NEXUS CNC - ESTILOS: StatCard
+// ============================================
+
+.stat-card {
+  text-align: left;
+  padding: $spacing-4 0;
+  
+  // Animation initial state
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // --- Number ---
+  &__number {
+    display: block;
+    font-family: $font-primary;
+    font-size: $font-size-5xl;
+    font-weight: $font-weight-bold;
+    color: $color-accent;
+    line-height: 1;
+    margin-bottom: $spacing-2;
+
+    @include mobile {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__suffix {
+    font-size: 0.6em;
+    vertical-align: super;
+  }
+
+  // --- Label ---
+  &__label {
+    @include label-text;
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+  }
+
+  // --- Reduced Motion ---
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// --- Stats Container ---
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-12;
+  padding-top: $spacing-8;
+  margin-top: $spacing-8;
+  border-top: 1px solid $border-color-default;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-6;
+  }
+}
+
+// --- Stats Bar (Full width) ---
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid $border-color-default;
+  border-bottom: 1px solid $border-color-default;
+
+  @include tablet-down {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: $spacing-10 $spacing-6;
+    text-align: center;
+    border-right: 1px solid $border-color-default;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    @include tablet-down {
+      &:nth-child(2n) {
+        border-right: none;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-bottom: 1px solid $border-color-default;
+      }
+    }
+
+    @include mobile {
+      border-right: none;
+      border-bottom: 1px solid $border-color-default;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

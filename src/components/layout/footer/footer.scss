@@ -1,0 +1,164 @@
+// ============================================
+// NEXUS CNC - ESTILOS: Footer
+// ============================================
+
+.footer {
+  background: $color-black;
+  border-top: 1px solid $border-color-default;
+  position: relative;
+  z-index: 1;
+
+  // --- Container ---
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-16;
+
+    @include tablet-down {
+      padding: 0 $spacing-8;
+    }
+
+    @include mobile {
+      padding: 0 $spacing-6;
+    }
+  }
+
+  // --- Main Section ---
+  &__main {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: $spacing-16;
+    padding: $spacing-16 0;
+
+    @include tablet-down {
+      grid-template-columns: 1fr;
+      gap: $spacing-12;
+    }
+  }
+
+  // --- Brand Column ---
+  &__brand {
+    max-width: 350px;
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: $spacing-4;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__tagline {
+    @include label-text;
+    margin-bottom: $spacing-4;
+  }
+
+  &__description {
+    @include body-text;
+    font-size: $font-size-sm;
+  }
+
+  // --- Links Section ---
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-8;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // --- Column ---
+  &__column {
+    @include mobile {
+      &:last-child {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__column-title {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-wider;
+    text-transform: uppercase;
+    color: $color-white;
+    margin-bottom: $spacing-6;
+  }
+
+  // --- Lists ---
+  &__list {
+    list-style: none;
+
+    li {
+      margin-bottom: $spacing-3;
+    }
+  }
+
+  &__link {
+    font-family: $font-primary;
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    text-decoration: none;
+    transition: color $transition-normal;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__address {
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    line-height: $line-height-relaxed;
+  }
+
+  // --- Bottom Section ---
+  &__bottom {
+    @include flex-between;
+    padding: $spacing-6 0;
+    border-top: 1px solid $border-color-default;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-2;
+      text-align: center;
+    }
+  }
+
+  &__copyright,
+  &__location {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+  }
+
+  // --- Social Links (optional) ---
+  &__social {
+    display: flex;
+    gap: $spacing-4;
+  }
+
+  &__social-link {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    color: $color-gray-600;
+    border: 1px solid $border-color-default;
+    transition: all $transition-normal;
+
+    &:hover {
+      color: $color-accent;
+      border-color: $color-accent;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

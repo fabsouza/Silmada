@@ -1,0 +1,61 @@
+// ============================================
+// NEXUS CNC - ESTILOS: Highlights
+// ============================================
+
+.highlights {
+  position: relative;
+  z-index: 1;
+
+  &__container {
+    @include container;
+  }
+
+  // --- Projects Section ---
+  &__projects {
+    @include section-padding;
+  }
+
+  &__cta {
+    text-align: center;
+    margin-top: $spacing-12;
+  }
+
+  // --- Tech Section ---
+  &__tech {
+    @include section-padding;
+    background: $color-black-lighter;
+  }
+
+  // --- CTA Section ---
+  &__cta-section {
+    @include section-padding;
+    border-top: 1px solid $border-color-default;
+  }
+
+  &__cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__cta-title {
+    @include heading-style;
+    font-size: $font-size-4xl;
+    color: $color-white;
+    margin-bottom: $spacing-6;
+
+    em {
+      font-style: italic;
+      color: $color-accent;
+    }
+
+    @include mobile {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__cta-text {
+    @include body-text;
+    margin-bottom: $spacing-8;
+  }
+}

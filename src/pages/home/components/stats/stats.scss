@@ -1,0 +1,55 @@
+// ============================================
+// NEXUS CNC - ESTILOS: Stats
+// ============================================
+
+.stats {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid $border-color-default;
+  border-bottom: 1px solid $border-color-default;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: $container-max-width;
+    margin: 0 auto;
+
+    @include tablet-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stat-card {
+    padding: $spacing-12 $spacing-8;
+    text-align: center;
+    border-right: 1px solid $border-color-default;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    @include tablet-down {
+      &:nth-child(2n) {
+        border-right: none;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-bottom: 1px solid $border-color-default;
+      }
+    }
+
+    @include mobile {
+      border-right: none;
+      border-bottom: 1px solid $border-color-default;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

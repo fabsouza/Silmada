@@ -1,0 +1,422 @@
+// ============================================
+// NEXUS CNC - MIXINS SCSS
+// ============================================
+
+// --- Flexbox ---
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// --- Grid ---
+@mixin grid($columns: 1, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin grid-auto-fit($min-width: 300px, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// --- Posicionamento ---
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fixed-fill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// --- Tipografia ---
+@mixin heading-style {
+  font-family: $font-heading;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-snug;
+}
+
+@mixin body-text {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-gray-600;
+}
+
+@mixin mono-text {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  letter-spacing: $letter-spacing-wide;
+}
+
+@mixin label-text {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// --- Transições ---
+@mixin transition($properties: all, $duration: $transition-normal, $timing: $transition-timing-ease) {
+  transition: $properties $duration $timing;
+}
+
+@mixin hover-lift {
+  transition: transform $transition-normal, box-shadow $transition-normal;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin hover-scale($scale: 1.02) {
+  transition: transform $transition-normal;
+  
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+// --- Efeitos ---
+@mixin glass-effect($opacity: 0.1) {
+  background: rgba($color-black, $opacity);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin noise-overlay($opacity: 0.03) {
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: $opacity;
+    pointer-events: none;
+    z-index: 1000;
+  }
+}
+
+@mixin grid-background($size: $grid-bg-size, $color: $grid-bg-color) {
+  background-image: 
+    linear-gradient($color 1px, transparent 1px),
+    linear-gradient(90deg, $color 1px, transparent 1px);
+  background-size: $size $size;
+}
+
+// --- Botões ---
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  padding: $button-padding-md;
+  font-family: $font-mono;
+  font-size: $button-font-size;
+  font-weight: $font-weight-bold;
+  letter-spacing: $button-letter-spacing;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  @include transition(all);
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $color-accent;
+  color: $color-white;
+  
+  &:hover:not(:disabled) {
+    background: $color-accent-hover;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $color-white;
+  border: $border-width-thin solid $color-white;
+  
+  &:hover:not(:disabled) {
+    background: $color-white;
+    color: $color-black;
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background: transparent;
+  color: $color-accent;
+  padding: $spacing-2 $spacing-4;
+  
+  &:hover:not(:disabled) {
+    background: $color-accent-light;
+  }
+}
+
+// --- Links ---
+@mixin link-underline($color: $color-accent) {
+  position: relative;
+  text-decoration: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $color;
+    @include transition(width);
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// --- Cards ---
+@mixin card-base {
+  background: $card-bg;
+  padding: $card-padding;
+  @include transition(background);
+  
+  &:hover {
+    background: $card-bg-hover;
+  }
+}
+
+@mixin card-accent-top {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $color-accent;
+    transform: scaleX(0);
+    transform-origin: left;
+    @include transition(transform);
+  }
+  
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+// --- Inputs ---
+@mixin input-base {
+  width: 100%;
+  padding: $input-padding;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  color: $color-white;
+  background: $input-bg;
+  border: $border-width-thin solid $input-border;
+  border-radius: $input-border-radius;
+  @include transition(border-color, box-shadow);
+  
+  &::placeholder {
+    color: $color-gray-500;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $input-border-focus;
+    box-shadow: 0 0 0 2px $color-accent-light;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// --- Scrollbar ---
+@mixin custom-scrollbar($width: 8px, $track: $color-black-lighter, $thumb: $color-gray-700) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: $border-radius-full;
+    
+    &:hover {
+      background: $color-gray-600;
+    }
+  }
+}
+
+// --- Acessibilidade ---
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Animações ---
+@mixin fade-in($duration: 0.5s, $delay: 0s) {
+  opacity: 0;
+  animation: fadeIn $duration ease-out $delay forwards;
+}
+
+@mixin slide-up($duration: 0.5s, $delay: 0s, $distance: 30px) {
+  opacity: 0;
+  transform: translateY($distance);
+  animation: slideUp $duration ease-out $delay forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// --- Container ---
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  
+  @include tablet-down {
+    padding: 0 $spacing-8;
+  }
+  
+  @include mobile {
+    padding: 0 $container-padding-mobile;
+  }
+}
+
+// --- Section ---
+@mixin section-padding {
+  padding: $section-padding-desktop;
+  
+  @include tablet-down {
+    padding: $section-padding-tablet;
+  }
+  
+  @include mobile {
+    padding: $section-padding-mobile;
+  }
+}

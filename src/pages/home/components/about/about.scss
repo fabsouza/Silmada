@@ -1,0 +1,21 @@
+// ============================================
+// NEXUS CNC - ESTILOS: About
+// ============================================
+
+.about {
+  @include section-padding;
+  position: relative;
+  z-index: 1;
+
+  &__container {
+    @include container;
+  }
+
+  &__services {
+    margin-bottom: $spacing-12;
+  }
+
+  &__cta {
+    text-align: center;
+  }
+}
